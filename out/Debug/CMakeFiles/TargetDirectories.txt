@@ -1,0 +1,4 @@
+/Users/craigsau/Documents/Programming/LearnOpenGL/out/Debug/CMakeFiles/glad.dir
+/Users/craigsau/Documents/Programming/LearnOpenGL/out/Debug/CMakeFiles/main.dir
+/Users/craigsau/Documents/Programming/LearnOpenGL/out/Debug/CMakeFiles/edit_cache.dir
+/Users/craigsau/Documents/Programming/LearnOpenGL/out/Debug/CMakeFiles/rebuild_cache.dir

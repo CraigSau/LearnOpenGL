@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/craigsau/Documents/Programming/LearnOpenGL/out/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -I/Users/craigsau/Documents/Programming/LearnOpenGL/glad/include -g -std=gnu99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -o CMakeFiles/glad.dir/glad/src/glad.c.o -c /Users/craigsau/Documents/Programming/LearnOpenGL/glad/src/glad.c",
+  "file": "/Users/craigsau/Documents/Programming/LearnOpenGL/glad/src/glad.c",
+  "output": "CMakeFiles/glad.dir/glad/src/glad.c.o"
+},
+{
+  "directory": "/Users/craigsau/Documents/Programming/LearnOpenGL/out/Debug",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -I/Users/craigsau/Documents/Programming/LearnOpenGL/glad/include -isystem /opt/homebrew/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/Library/Frameworks -g -std=gnu99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -o CMakeFiles/main.dir/src/main.c.o -c /Users/craigsau/Documents/Programming/LearnOpenGL/src/main.c",
+  "file": "/Users/craigsau/Documents/Programming/LearnOpenGL/src/main.c",
+  "output": "CMakeFiles/main.dir/src/main.c.o"
+}
+]
