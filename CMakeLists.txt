@@ -11,7 +11,9 @@ add_library(glad glad/src/glad.c)
 target_include_directories(glad PUBLIC glad/include)
 
 # Add the executable
-add_executable(main src/main.c)
+add_executable(main src/main.c src/shader.c)
+
+target_include_directories(main PUBLIC include)
 
 # Find GLFW and OpenGL
 find_package(glfw3 3.3 REQUIRED)
