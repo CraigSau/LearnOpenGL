@@ -176,10 +176,12 @@ CMakeFiles/main.dir/src/shader.c.o: /Users/craigsau/Documents/Programming/LearnO
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/signal.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/wait.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdint.h \
   /Users/craigsau/Documents/Programming/LearnOpenGL/glad/include/KHR/khrplatform.h \
   /Users/craigsau/Documents/Programming/LearnOpenGL/glad/include/glad/glad.h \
-  /Users/craigsau/Documents/Programming/LearnOpenGL/include/shader.h
+  /Users/craigsau/Documents/Programming/LearnOpenGL/include/shader.h \
+  /opt/homebrew/include/GLFW/glfw3.h
 
 
 /Users/craigsau/Documents/Programming/LearnOpenGL/src/shader.c:

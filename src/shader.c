@@ -1,7 +1,9 @@
-#include "../include/shader.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "../include/shader.h"
 
 static char* readShaderSource(const char* filePath) {
     FILE* file = fopen(filePath, "r");
@@ -28,29 +30,55 @@ static char* readShaderSource(const char* filePath) {
     return source;
 }
 
+void checkCompileErrors(GLuint shader, const char* type) {
+    GLint success;
+    GLchar infoLog[1024];
+    if (strcmp(type, "PROGRAM") == 0) {
+        glGetProgramiv(shader, GL_LINK_STATUS, &success);
+        if (!success) {
+            glGetProgramInfoLog(shader, 1024, NULL, infoLog);
+            fprintf(stderr, "ERROR::PROGRAM_LINKING_ERROR of type: %s\n%s\n", type, infoLog);
+        }
+    } else {
+        glGetShaderiv(shader,GL_COMPILE_STATUS, &success);
+        if (!success) {
+            glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+            fprintf(stderr, "ERROR::SHADER_COMPILATION_ERROR of type: %s\n%s\n", type, infoLog);
+        }
+    }
+}
+
 // Helper function to compile a shader
 static GLuint compileShader(const char* source, GLenum shaderType) {
     GLuint shader = glCreateShader(shaderType);
     glShaderSource(shader, 1, &source, NULL);
     glCompileShader(shader);
 
-    GLint compileStatus;
-    glGetShaderiv(shader, GL_COMPUTE_SHADER, &compileStatus);
-    if (compileStatus != GL_TRUE) {
-        char buffer[512];
-        glGetShaderInfoLog(shader, 512, NULL, buffer);
-        fprintf(stderr, "Shader compile error: %s\n", buffer);
-        glDeleteShader(shader);
-        return 0;
-    }
+    checkCompileErrors(shader, shaderType == GL_VERTEX_SHADER ? "VERTEX" : "FRAGMENT");
+
+    //GLint compileStatus;
+    //glGetShaderiv(shader, GL_COMPUTE_SHADER, &compileStatus);
+    //if (compileStatus != GL_TRUE) {
+    //    char buffer[512];
+    //    glGetShaderInfoLog(shader, 512, NULL, buffer);
+    //    fprintf(stderr, "Shader compile error: %s\n", buffer);
+    //    glDeleteShader(shader);
+    //    return 0;
+    //}
 
     return shader;
 }
+
 
 // Function to initialize the shader (constructor equivalent)
 Shader createShader(const char *vertexPath, const char *fragmentPath) {
     Shader shader;
     shader.ID = 0;
+
+    const GLubyte* renderer = glGetString(GL_RENDERER);
+    const GLubyte* version = glGetString(GL_VERSION);
+    printf("Renderer: %s\n", renderer);
+    printf("Version: %s\n", version);
 
     char* vertexSource = readShaderSource(vertexPath);
     char* fragmentSource = readShaderSource(fragmentPath);
@@ -61,8 +89,12 @@ Shader createShader(const char *vertexPath, const char *fragmentPath) {
         return shader;
     }
 
+    printf("Attempting to compile the vertex shader!\n");
     GLuint vertexShader = compileShader(vertexSource, GL_VERTEX_SHADER);
+    printf("Compiled the vertex shader!\n");
+    printf("Attempting to compile the fragment shader!\n");
     GLuint fragmentShader = compileShader(fragmentSource, GL_FRAGMENT_SHADER);
+    printf("Compiled the fragment shader!\n");
 
     free(vertexSource);
     free(fragmentSource);

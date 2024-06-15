@@ -39,8 +39,8 @@ int main() {
       return -1;
     }
 
-    Shader shader = createShader("/Users/craigsau/Documents/Programming/LearnOpenGL/src/shaders/triangleFragment.glsl",
-                                 "/Users/craigsau/Documents/Programming/LearnOpenGL/src/shaders/triangleVertex.glsl");
+    Shader shader = createShader("/Users/craigsau/Documents/Programming/LearnOpenGL/src/shaders/triangleVertex.glsl",
+                                 "/Users/craigsau/Documents/Programming/LearnOpenGL/src/shaders/triangleFragment.glsl");
     if (shader.ID == 0) {
         fprintf(stderr, "Failed to create shader program\n");
         return -1;
